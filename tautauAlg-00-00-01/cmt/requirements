@@ -1,0 +1,35 @@
+package tautauAlg
+
+use BesAIDA BesAIDA-*    External
+use BesPolicy BesPolicy-01-*
+# use BesPolicy BesPolicy-*
+# use GaudiInterface GaudiInterface-* External
+use GaudiInterface GaudiInterface-01-* External
+use DstEvent	 DstEvent-*    Event
+use EventModel   EventModel-*  Event 
+use EvtRecEvent  EvtRecEvent-*      Event
+use MdcRawEvent  MdcRawEvent-* Mdc
+use McTruth      McTruth-*     Event
+use ReconEvent   ReconEvent-*  Event
+use ParticleID   ParticleID-*  Analysis	
+use VertexFit    VertexFit-*   Analysis
+use BesROOT      BesROOT-00-*     External
+use TrigEvent TrigEvent-* Event
+use MdcRecEvent  MdcRecEvent-*  Mdc
+use DatabaseSvc DatabaseSvc-* Database
+use EventNavigator EventNavigator-* Event
+use RealizationSvc RealizationSvc-* Simulation/Realization
+
+use BesDChain           BesDChain-*           Event
+use DTagAlg             DTagAlg-*             Reconstruction
+use McDecayModeSvc      McDecayModeSvc-*      Analysis
+use HadronInfo          HadronInfo-*          Utilities
+use GammaConv           GammaConv-*           Reconstruction
+
+#======== for DST ============
+# use RootIO RootIO-* Event 
+macro_append tautauAlg_shlibflags " -lDTagAlg "
+
+
+apply_pattern component_library
+library tautauAlg  *.cxx  components/*.cxx util/*.cxx
